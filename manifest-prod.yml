@@ -1,0 +1,11 @@
+applications:
+  - name: simpleApp
+    buildpack: https://github.com/BLaurent/java-buildpack.git
+    path: target/simpleApp-1.0-SNAPSHOT.jar
+    memory: 512M
+    dist_quota: 1G
+    instances: 1
+    timeout: 60
+env:
+  SPRING_PROFILES_ACTIVE: prod
+  trustedIssuerId: https://{uaa-prod}.run.aws-usw02-pr.ice.predix.io/oauth/token

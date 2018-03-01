@@ -1,0 +1,18 @@
+applications:
+  - name: simpleApp-back-dev
+    buildpack: https://github.com/BLaurent/java-buildpack.git
+    path: target/simpleApp-1.0-SNAPSHOT.jar
+    memory: 512M
+    dist_quota: 1G
+    instances: 1
+    timeout: 60
+services:
+ - timeseries
+ - uaa-tools
+env:
+  SPRING_PROFILES_ACTIVE: dev
+  trustedIssuerId: https://d9573637-be05-4981-88ac-49f66b828964.predix-uaa.run.aws-usw02-pr.ice.predix.io/oauth/token
+  clientId: rest-client
+  clientSecret: rest-client
+  CLIENT_QUERY: rest-client
+  CLIENT_INGEST: rest-client

@@ -1,0 +1,26 @@
+
+debug: false
+
+server:
+  tomcat.max-threads: 10
+  compression:
+    enabled: true
+    mime-types: application/json,application/xml,text/html,text/xml,text/plain
+
+---
+
+spring:
+  profiles: cloud
+
+services:
+  postgres: ${postgresServiceName}
+uaa:
+  tokenservices:
+    storeClaims: true
+    trustedIssuers: ${vcap.services.<uaaname>.credentials.issuerId}
+  uri: ${vcap.services.<uaaname>.credentials.uri}
+
+predix:
+  timeseries:
+    websocket:
+      uri: ${vcap.services.<tsname>.credentials.ingest.uri}

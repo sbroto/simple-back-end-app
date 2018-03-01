@@ -1,0 +1,4 @@
+security:
+  ignored: /**
+
+trustedIssuerId: https://uaa-test.aws-usw02-pr.ice.predix.io/oauth/token
